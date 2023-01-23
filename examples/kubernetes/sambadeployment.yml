@@ -20,7 +20,7 @@ spec:
           claimName: mypvc
       containers:
       - name: samba
-        image: quay.io/samba.org/samba-server:latest
+        image: registry.opensuse.org/opensuse/samba-server:latest
         ports:
         - containerPort: 445
         volumeMounts:

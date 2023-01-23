@@ -15,7 +15,7 @@ set -e
 #-- user settable options ---
 #
 # The container image to use
-image=quay.io/samba.org/samba-server:latest
+image=registry.opensuse.org/opensuse/samba-server:latest
 # The name of the pod
 name=domsamba
 # The port that 445 will be mapped to
