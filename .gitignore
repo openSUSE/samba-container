@@ -1,1 +1,5 @@
 *~
+.build.ad-server
+.build.client
+.build.server
+.build.toolbox
