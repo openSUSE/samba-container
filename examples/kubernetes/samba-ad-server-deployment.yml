@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: samba-ad
-        image: quay.io/samba.org/samba-ad-server:latest
+        image: registry.opensuse.org/opensuse/samba-ad-server:latest
         securityContext:
           capabilities:
             add: ["SYS_ADMIN"]

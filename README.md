@@ -30,7 +30,7 @@ by the host. A default user, named "sambauser" is predefined with a password of
 "samba". This simple mode of operation is great for quick demos. Example:
 
 ```sh
-podman run --name samba --publish 10445:445 --volume=/path/on/host/to/share:/share:Z --rm  quay.io/samba.org/samba-server:latest
+podman run --name samba --publish 10445:445 --volume=/path/on/host/to/share:/share:Z --rm registry.opensuse.org/opensuse/samba-server:latest
 ```
 > **Note**
 > The port mapping option (`--publish`) is only needed when running
@@ -44,9 +44,9 @@ to make them work together. This tool is provided by the
 
 ```sh
 # print help
-podman run --rm quay.io/samba.org/samba-server:latest --help
+podman run --rm registry.opensuse.org/opensuse/samba-server:latest --help
 # print help for the run subcommand
-podman run --rm quay.io/samba.org/samba-server:latest run --help
+podman run --rm registry.opensuse.org/opensuse/samba-server:latest run --help
 ```
 
 ### Changing the configuration
@@ -58,7 +58,7 @@ variables.
 You can include a custom configuration via the following method:
 ```
 $EDITOR /path/to/config/config.json
-podman run --name samba  --publish 10445:445 --volume=/path/on/host/to/share:/share:Z --volume=/path/to/config:/etc/samba-container -e SAMBACC_CONFIG=/etc/samba-container/config.json -e SAMBA_CONTAINER_ID=myid  --rm  quay.io/samba.org/samba-server:latest
+podman run --name samba  --publish 10445:445 --volume=/path/on/host/to/share:/share:Z --volume=/path/to/config:/etc/samba-container -e SAMBACC_CONFIG=/etc/samba-container/config.json -e SAMBA_CONTAINER_ID=myid  --rm  registry.opensuse.org/opensuse/samba-server:latest
 ```
 
 <!-- TODO: link to advanced docs for samba server -->
@@ -73,7 +73,7 @@ Because the Samba AD DC uses certain file system xattrs this container
 must currently be run with privileges. Example:
 
 ```sh
-podman run --rm --privileged  quay.io/samba.org/samba-ad-server:latest
+podman run --rm --privileged registry.opensuse.org/opensuse/samba-ad-server:latest
 ```
 
 The `samba-dc-container` entrypoint can perform multiple functions as is
@@ -93,7 +93,7 @@ interactively when a TTY is available and can also be scripted for
 automated testing purposes. Example:
 
 ```sh
-podman run --rm -it   quay.io/samba.org/samba-client:latest
+podman run --rm -it registry.opensuse.org/opensuse/samba-client:latest
 [root@dc0419d28c4e /]# smbclient -U 'sambauser' //foo.example.org/share
 ```
 
@@ -106,7 +106,7 @@ as the user space client. This can be used for debugging and testing purposes.
 Example:
 
 ```sh
-podman run --rm -it   quay.io/samba.org/samba-toolbox:latest
+podman run --rm -it registry.opensuse.org/opensuse/samba-toolbox:latest
 [root@dc0419d28c4e /]# smbtorture --help
 ```
 ## Image Variants

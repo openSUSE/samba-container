@@ -52,9 +52,9 @@ Other global CLI options include:
 
 The `run` subcommand starts Samba servers. Valid Samba servers include: `smbd`,
 `winbindd`, and `ctdbd`. For example to start smbd explicitly you can run
-`podman run --rm --name smbd quay.io/samba.org/samba-server:latest run smbd` or
+`podman run --rm --name smbd registry.opensuse.org/opensuse/samba-server:latest run smbd` or
 to start winbind execute `podman run --rm --name winbindd
-quay.io/samba.org/samba-server:latest run winbindd`. The servers run in the foreground as is typical for application containers.
+registry.opensuse.org/opensuse/samba-server:latest run winbindd`. The servers run in the foreground as is typical for application containers.
 
 The option `--setup` may be specified one or more times. The values
 to the setup option tell the tool what setup steps to perform before
@@ -73,7 +73,7 @@ Valid values include:
 Here's an example of running an smbd server with a specific set of setup steps.
 One might want to do something like this if Samba's db files are persisted
 across restarts of the container. Example:
-`podman run --rm --name -v /var/lib/sambactr/var:/var/lib/samba smbd quay.io/samba.org/samba-server:latest run --setup=users --setup=nsswitch --setup=share_paths smbd`
+`podman run --rm --name -v /var/lib/sambactr/var:/var/lib/samba smbd registry.opensuse.org/opensuse/samba-server:latest run --setup=users --setup=nsswitch --setup=share_paths smbd`
 
 
 ## Environment & System Control
@@ -121,7 +121,7 @@ values will be set by a sub-command like `import`.
 
 For example, the default configuration of the server image:
 ```
-podman run --rm quay.io/samba.org/samba-server:latest print-config
+podman run --rm registry.opensuse.org/opensuse/samba-server:latest print-config
 [global]
         security = user
         server min protocol = SMB2
@@ -193,7 +193,7 @@ container and run the `join`.
 
 Example:
 ```
-$ podman run -d --rm --name joiner -v /var/lib/sambactr/var:/var/lib/samba quay.io/samba.org/samba-server:latest must-join --wait
+$ podman run -d --rm --name joiner -v /var/lib/sambactr/var:/var/lib/samba registry.opensuse.org/opensuse/samba-server:latest must-join --wait
 $ podman exec --rm -it joiner
 # samba-container join --interactive
 ```
