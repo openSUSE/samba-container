@@ -17,7 +17,6 @@ LABEL org.openbuildservice.disturl="%DISTURL%"
 LABEL org.opensuse.reference="registry.opensuse.org/opensuse/samba-ad-server:%%PKG_VERSION%%-%RELEASE%"
 # endlabelprefix
 
-RUN zypper ar --no-gpgcheck https://mirrorcache-us.opensuse.org/repositories/network:/samba:/TESTING/openSUSE_Tumbleweed/network%3Asamba%3ATESTING.repo
 RUN zypper --non-interactive install --no-recommends \
   findutils \
   python3-pip \
