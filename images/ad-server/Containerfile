@@ -35,7 +35,7 @@ RUN ln -sf /usr/share/sambacc/examples/addc.json /etc/samba/container.json
 
 ENV SAMBACC_CONFIG="/etc/samba/container.json:/etc/samba/users.json"
 ENV SAMBA_CONTAINER_ID="demo"
-ENV SAMBA_SPECIFICS="$SAMBA_SPECIFICS"
+ENV SAMBA_SPECIFICS="daemon_cli_debug_output"
 ENTRYPOINT ["samba-dc-container"]
 CMD ["run", "--setup=provision", "--setup=populate"]
 
